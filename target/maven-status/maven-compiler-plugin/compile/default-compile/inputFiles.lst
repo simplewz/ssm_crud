@@ -1,0 +1,14 @@
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\service\DepartmentService.java
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\bean\Employee.java
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\utils\MybatisGenerator.java
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\bean\Department.java
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\controller\DepartmentController.java
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\test\MvcTest.java
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\dao\DepartmentMapper.java
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\bean\DepartmentExample.java
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\bean\Message.java
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\bean\EmployeeExample.java
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\controller\EmployeeController.java
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\dao\EmployeeMapper.java
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\service\EmployeeService.java
+E:\J2EE\ssm_crud\src\main\java\com\wz\crud\test\MapperTest.java
