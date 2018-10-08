@@ -404,6 +404,7 @@
 			if($(this).attr("ajax-va")=="error"){
 				return false;
 			}
+			//alert($("#empAddModal form").serialize());
 			//2再发送ajax请求保存员工信息
 			$.ajax({
 				url:"${APP_PATH}/emp",
@@ -454,6 +455,7 @@
 				url:"${APP_PATH}/emp/"+id,
 				type:"GET",
 				success:function(result){
+					//console.log(result);
 					var empData=result.extend.emp;
 					$("#empName_update_input").val(empData.empName);
 					$("#email_update_input").val(empData.email);
@@ -509,6 +511,7 @@
 				type:"PUT",
 				data:$("#empUpdateModal form").serialize(),
 				success:function(){
+					//console.log(result);
 					//关闭对话框
 					$("#empUpdateModal").modal("hide");
 					//回到本界面
@@ -525,7 +528,7 @@
 			if(confirm("确认删除【"+empName+"】吗？")){
 				//点击确认删除即可
 				$.ajax({
-					url:"$(APP_PATH)/emp/"+empId,
+					url:"${APP_PATH}/emp/"+empId,
 					type:"DELETE",
 					success:function(result){
 							alert(result.message);
@@ -568,7 +571,7 @@
 			if(confirm("确认删除【"+empNames+"】吗？")){
 				//发送Ajax请求
 				$.ajax({
-					url:"$(APP_PATH)/emp/"+del_idstr,
+					url:"${APP_PATH}/emp/"+del_idstr,
 					type:"DELETE",
 					success:function(result){
 						alert(result.message);
