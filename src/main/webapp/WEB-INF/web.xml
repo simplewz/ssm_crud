@@ -12,6 +12,11 @@
   	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
   
+  <servlet-mapping>
+	    <servlet-name>default</servlet-name>
+	    <url-pattern>*.jpg</url-pattern>
+	</servlet-mapping>
+  
   <!-- 2.spring MVC配置文件，前端控制器配置文件，拦截所有请求 -->
 	<servlet>
 		<servlet-name>dispatcherServlet</servlet-name>
@@ -33,11 +38,11 @@
     <servlet-mapping>
        <servlet-name>default</servlet-name>
        <url-pattern>*.woff*</url-pattern>
+       </servlet-mapping>
        <servlet-mapping>
        <servlet-name>default</servlet-name>
        <url-pattern>*.ttf</url-pattern>
-    </servlet-mapping>
-    </servlet-mapping>
+    	</servlet-mapping>
 	<!-- 3.字符集过滤器 -->
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>

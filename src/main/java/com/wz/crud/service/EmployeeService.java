@@ -64,7 +64,6 @@ public class EmployeeService {
 	 * @param employee
 	 */
 	public void updateEmp(Employee employee) {
-		// TODO Auto-generated method stub
 		employeeMapper.updateByPrimaryKeySelective(employee);
 	}
 
@@ -78,7 +77,6 @@ public class EmployeeService {
 	}
 
 	public void deleteBatch(List<Integer> ids) {
-		// TODO Auto-generated method stub
 		EmployeeExample example=new EmployeeExample();
 		Criteria criteria=example.createCriteria();
 		criteria.andEmpIdIn(ids);

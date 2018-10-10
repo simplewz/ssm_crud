@@ -49,7 +49,7 @@ public class EmployeeController {
 			String[] str_ids=ids.split("-");
 			//组装id集合
 			for (String string : str_ids) {
-				del_ids.add(Integer.parseInt(ids));
+				del_ids.add(Integer.parseInt(string));
 			}
 			employeeService.deleteBatch(del_ids);
 		}else{
@@ -80,7 +80,7 @@ public class EmployeeController {
 	@RequestMapping(value="/emp/{empId}",method=RequestMethod.PUT)
 	@ResponseBody
 	public Message saveEmp(Employee employee){
-		System.out.println(employee);
+		System.out.println(employee.getdId());
 		employeeService.updateEmp(employee);
 		return Message.success();
 	}
