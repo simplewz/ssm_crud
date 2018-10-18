@@ -53,14 +53,14 @@ ssm_crud
   Context directory中输入web.xml文件的路径（src/main/webapp）——>apply
   经过上面的配置后会在webapp目录下创建web.xml配置文件。
   2.如果JRE环境有问题，可对Maven安装目录下的Settings.xml文件做如下修改
- <mirror>  
+ 	<mirror>  
 	  <id>alimaven</id>  
 	  <name>aliyun maven</name>  
 	  <url>http://maven.aliyun.com/nexus/content/groups/public/</url>  
 	  <mirrorOf>central</mirrorOf>          
 	</mirror>
   这样设置下载jar包较快
-  <profile>
+  	<profile>
 		<id>jdk18</id>
 		<activation>
 			<activeByDefault>true</activeByDefault>
@@ -78,7 +78,7 @@ ssm_crud
   4.修改项目的Java版本
    右键单击项目——>Properties——>Project facets——>Java——>1.8
    
-  五.引入项目依赖的jar包
+  五.引入项目依赖的jar包(引入的jar包请参考pom.xml文件)
   1.spring核心包
   2.springMVC的jar包
   3.MyBatis的jar包
@@ -98,7 +98,31 @@ ssm_crud
   
   七.编写SSM框架整合的关键配置文件
   web.xml spring的配置文件applicationContext.xml文件 springMVC的配置文件 MyBatis的配置文件
-  
-  
-  
+  1.Web.xml配置文件的编写（详情请参照项目中的web.xml配置文件）
+  (1)配置启动Spring的容器，在Web.xml文件中配置启动Spring的容器后，将启动Spring的容器的工作交给服务器来做，这样在后续的每次发出请求时不用每次都启动   一个Spring容器，能加快网站的响应时间，提高性能。
+  (2)配置SpringMVC的前端控制器，可以在<init-param></init-param>中配置SpringMVC配置文件的路径。代码片段如下：
+  	<init-param>
+		<param-name>ContextConfigLocation</param-name>
+		<param-value>location</param-value>
+	</init-param>
+  location位置即SpringMVC的配置文件所在的路径，如果不指定，则需要在web.xml同级目录下有SpringMVC的配置文件，该配置文件的名称为Servlet-name+“- servlet.xml”。比如在Servlet中有<servlet-name>dispatcherServlet<servlet-name>配置片段，则在web.xml同级的目录下需要有一个名为
+  dispatcherServlet-servlet.xml的配置文件。
+  (3)字符编码过滤器的配置
+  需要注意字符编码过滤器应在所有过滤器之前配置，即如果项目字符编码过滤器应该是第一个过滤器。
+  (4)配置使用REST风格的URI过滤器。
 
+2.SpringMVC的配置：主要用于控制网站的跳转逻辑的配置(详情请参见项目中的dispatcherServlet-servlet.xml文件)
+(1)配置扫描与网站跳转逻辑有关的组件，因为控制器控制网站的跳转逻辑，所以只扫描控制器即可，即只扫描带Controller注解的组件。
+(2)配置视图解析器。
+(3)两个标准的配置。一是将将SpringMVC不能处理的请求交给服务器处理的配置，二是开启注解配置。
+
+3.Spring的配置文件，Spring的配置文件默认名称是applicationContext.xml。(详情请参见项目中的applicationContext.xml文件)
+(1)数据源的配置。因为数据源涉及到数据库的一些私密信息，因此一般采用从属性文件中读取的方式配置。
+(2)配置扫描业务逻辑组件，除了Controller组件都扫描。
+(3)配置与MyBatis的整合。
+(4)事务控制配置。
+
+4.MyBatis的配置文件(参见项目中的applicationContext-mybatis.xml文件)
+
+5.MyBatis-Generator配置文件。使用设个配置文件可以使用MyBatis逆向工程，能够将数据库中的表自动映射需要的Mapper文件。
+(1)在pom.xml中引入MyBatis Generator jar包.(引入方式请参见pom.xml文件)
